@@ -1,0 +1,10 @@
+<%- include('../partials/boilerplate') %>
+<div class="user-container">
+    <form method="POST" action="/auth/login">
+        <input class="login" name="username" type="text" placeholder="Username" required />
+        <input class="login" name="password" type="password" placeholder="Password" required />
+        <input type="submit" value="Log In"/>
+    </form>
+    <p>Not a member yet? Please <span><a href="/user/new"><button>Register</button></a></span></p>
+</div>
+<%- include('../partials/end') %>

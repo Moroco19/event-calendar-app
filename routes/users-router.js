@@ -6,7 +6,7 @@ const authHelper = require('../services/auth/auth-helper');
 
 userRouter.get('/', authHelper.loginRequired, userController.index);
 userRouter.get('/new', authHelper.loginRedirect, (req, res) => {
-    res.send(`New User`);
+    res.render('auth/register');
 });
 userRouter.post('/', userController.create);
 

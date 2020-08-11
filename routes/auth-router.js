@@ -5,7 +5,7 @@ const authHelper = require('../services/auth/auth-helper');
 const passport = require('../services/auth/local');
 
 authRouter.get('/login', authHelper.loginRedirect, (req, res) => {
-    res.send(`Login Page`);
+    res.render('auth/login')
 });
 
 authRouter.post('/login', passport.authenticate('local', {
