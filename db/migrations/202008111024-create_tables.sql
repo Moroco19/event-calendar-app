@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS events (
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL UNIQUE,
     password_digest TEXT,
     email VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL

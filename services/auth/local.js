@@ -13,11 +13,12 @@ passport.use(
         User.findByUserName(username)
             .then((user) => {
                 if(!user) {
-                    return done(null, false);
+                    console.log('Invalid username.');
+                    return done(null, false, { message: 'Invalid username.'});
                 }
                 if(!authHelper.comparePass(password, user.password_digest)) {
-                    console.log('Unsuccessful login');
-                    return done(null, false);
+                    console.log('Invalid password.');
+                    return done(null, false, { message: 'Invalid password.'});
                 }
                 else {
                     console.log('Successful login');

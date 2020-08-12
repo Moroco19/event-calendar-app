@@ -22,7 +22,10 @@ const userController = {
                 res.redirect('/events');
             });
         })
-        .catch(next);
+        .catch((err) => {
+            if (err.detail.includes('username')) {
+                res.redirect('/user/new');
+            } });
     },
 };
 
