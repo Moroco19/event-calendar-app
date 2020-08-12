@@ -1,7 +1,7 @@
 <nav>
-    <div class="username"></div>
+    <div class="username"><a href="/user/<%= user.id %>"><%= user.username %></a></div>
     <div class="nav-items">
-        <div>Events</div>
-        <div>Users</div>
+        <a href="/events"><div>Events</div></a>
+        <a href="/user"><div>Users</div></a>
     </div>
 </nav>
