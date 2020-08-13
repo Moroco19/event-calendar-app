@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const moment = require('moment');
 
 const authRouter = require('./routes/auth-router');
 const eventsRouter = require('./routes/events-router');
@@ -25,6 +26,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.locals.moment = moment;
 
 app.set('views', 'views');
 app.set('view engine', 'ejs');
