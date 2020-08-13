@@ -2,13 +2,13 @@
 <%- include('../partials/nav') %>
 <div class="user-profile">
     <h3>User Edit View</h3>
-    <form method="POST" action="/user/<%= user.id %>?_method=PUT">
+    <form method="POST" action="/user/<%= userNav.id %>?_method=PUT">
         <input name="username" type="text" value="<%= user.username %>" placeholder="<%= user.username %>" />
         <input name="email" type="text" value="<%= user.email %>" placeholder="<%= user.email %>" />
         <input name="name" type="text" value="<%= user.name %>" placeholder="<%= user.name %>" />
-        <p>Country List</p>
         <input type="submit" value="Save" />
     </form>
+    <p>Country List</p>
     <a href="/user/<%= userNav.id %>"><button>Cancel</button></a>
 </div>
 <%- include('../partials/end') %>

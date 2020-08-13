@@ -9,8 +9,8 @@ const userController = {
                     userNav: req.user,
                     users,
                 })
-                .catch((err) => next(err));
             })
+            .catch((err) => next(err));
     },
 
     create(req, res, next) {
@@ -22,7 +22,6 @@ const userController = {
             password_digest: hash,
             name: req.body.name,
         })
-        .then()
         .save()
         .then((user) => {
             req.login(user, (err) => {
@@ -48,7 +47,8 @@ const userController = {
     update(req, res, next) {
         User.findByUserId(req.params.id)
             .then((user) => {
-                return user.update(req.body);
+                console.log(user);
+                return user.updates(req.body);
             })
             .then((updatedUser) => {
                 res.redirect(`user/${updatedUser.id}`);

@@ -35,7 +35,7 @@ class User {
             .then((savedUser) => Object.assign(this, savedUser));
     }
 
-    update(changes) {
+    updates(changes) {
         Object.assign(this, changes);
         return db
             .oneOrNone(
@@ -47,8 +47,8 @@ class User {
                 RETURNING *`, this
             )
             .then((updatedUser) => {
-                Object.assign(this, updatedUser);
-            })
+                return Object.assign(this, updatedUser);
+            });
     }
 }
 
