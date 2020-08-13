@@ -12,7 +12,7 @@ class EventItem{
 
     static getAll() {
         return db
-            .manyOrNone(`SELECT * FROM events`)
+            .manyOrNone(`SELECT * FROM events ORDER BY event_date ASC`)
             .then((eventIs) => eventIs.map((eventI) => new this(eventI)));
     }
 

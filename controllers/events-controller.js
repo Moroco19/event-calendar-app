@@ -4,7 +4,6 @@ const eventController = {
     index(req, res, next) {
         EventItem.getAll()
             .then((eventItems) => {
-                console.log(eventItems)
                 res.render('events/index', { 
                     eventItems,
                     userNav: req.user, 
