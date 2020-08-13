@@ -15,6 +15,7 @@ const userController = {
             password_digest: hash,
             name: req.body.name,
         })
+        .then()
         .save()
         .then((user) => {
             req.login(user, (err) => {
@@ -26,6 +27,15 @@ const userController = {
             if (err.detail.includes('username')) {
                 res.redirect('/user/new');
             } });
+    },
+
+    show(req, res, next) {
+        User.findByUserId(req.params.id)
+            .then((user) => {
+                res.locals.user = user;
+                next();
+            })
+            .catch((err) => next(err));
     },
 };
 

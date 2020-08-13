@@ -1,6 +1,14 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
-<div>
+<div class="event-item">
     <h3>Add Event View</h3>
+    <form method="POST" action="/events">
+        <input name="event_name" type="text" placeholder="Event Name" />
+        <input name="event_date" type="date" placeholder="Event Date" />
+        <input name="event_time" type="time" placeholder="Event Time" />
+        <input name="description" type="text" placeholder="Description" />
+        <input type="submit" value="Submit" />
+    </form>
+    <a href="/events/">Back</a>
 </div>
 <%- include('../partials/end') %>

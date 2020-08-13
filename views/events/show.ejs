@@ -2,5 +2,11 @@
 <%- include('../partials/nav') %>
 <div>
     <h3>Single Event View</h3>
+    <div class="events-single">
+        <div><h3><%= eventI.event_date %></h3></div>
+        <div><p><%= eventI.event_name %></p></div>
+        <div><p><%= eventI.event_time %></p></div>
+        <div><p><%= eventI.event_description %></p></div>
+    </div>
 </div>
 <%- include('../partials/end') %>

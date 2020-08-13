@@ -4,9 +4,11 @@ const eventController = {
     index(req, res, next) {
         EventItem.getAll()
             .then((eventItems) => {
+                console.log(eventItems)
                 res.render('events/index', { 
-                    user: req.user,
-                    eventItems });
+                    eventItems,
+                    userNav: req.user, 
+                });
             })
             .catch((err) => next(err));
     },
@@ -22,9 +24,9 @@ const eventController = {
 
     create(req, res, next) {
         new EventItem ({
-            eventName: req.body.eventName,
-            eventDate: req.body.eventDate,
-            eventTime: req.body.eventTime,
+            event_name: req.body.event_name,
+            event_date: req.body.event_date,
+            event_time: req.body.event_time,
             description: req.body.description,
             user_id: req.user.id,
         })

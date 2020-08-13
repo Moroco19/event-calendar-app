@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS events (
     id SERIAL PRIMARY KEY,
-    eventName VARCHAR(255) NOT NULL,
-    eventDate DATE NOT NULL,
-    eventTime TIME NOT NULL,
+    event_name VARCHAR(255) NOT NULL,
+    event_date DATE NOT NULL,
+    event_time TIME NOT NULL,
     description TEXT
 );
 

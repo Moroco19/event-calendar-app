@@ -14,6 +14,11 @@ class User {
             .oneOrNone(`SELECT * FROM users WHERE username = $1`, username);
     }
 
+    static findByUserId(id) {
+        return db
+        .oneOrNone(`SELECT * FROM users WHERE id = $1`, id);
+    }
+
     save() {
         return db
             .one(

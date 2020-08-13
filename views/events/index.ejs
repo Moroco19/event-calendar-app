@@ -1,8 +1,19 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
 <div class="events-index">
+    <div>
+        <a href="/events/add"><button>Create Event</button></a>
+    </div>
     <h3>Upcoming Week</h3>
     <div>7 Day Calendar View</div>
-    <div>Planned Events Table View</div>
+    <div class="events-container">
+        <% for (let eventI of eventItems) { %>
+            <%= console.log(eventI) %>
+            <a href="/events/<%= eventI.id %>"><div class="events-list">
+                <div><h3><%= eventI.event_date %></h3></div>
+                <div><p><%= eventI.event_name %></p></div>
+            </div></a>
+        <% } %>
+    </div>
 </div>
 <%- include('../partials/end') %>

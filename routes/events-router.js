@@ -6,16 +6,20 @@ const authHelper = require('../services/auth/auth-helper');
 
 eventRouter.get('/', authHelper.loginRequired, eventController.index);
 eventRouter.get('/add', authHelper.loginRequired, (req, res) => {
-    res.render('events/add');
+    res.render('events/add', {
+        userNav: req.user,
+    });
 });
 eventRouter.post('/', eventController.create);
 eventRouter.get('/:id([0-9]+)', authHelper.loginRequired, eventController.show, (req, res) => {
     res.render('events/show', {
+        userNav: req.user,
         eventI: res.locals.eventI,
     });
 });
 eventRouter.get('/:id([0-9]+)/edit', authHelper.loginRequired, eventController.show, (req, res) => {
     res.render('/events/edit', {
+        userNav: req.user,
         eventI: res.locals.eventI,
     });
 });

@@ -1,11 +1,11 @@
 const db = require('../db/config');
 
 class EventItem{
-    constructor({ id, eventName, eventDate, eventTime, description, user_id }) {
+    constructor({ id, event_name, event_date, event_time, description, user_id }) {
         this.id = id;
-        this.eventName = eventName;
-        this.eventDate = eventDate;
-        this.eventTime = eventTime;
+        this.event_name = event_name;
+        this.event_date = event_date;
+        this.event_time = event_time;
         this.description = description;
         this.user_id = user_id;
     };
@@ -28,8 +28,8 @@ class EventItem{
     save() {
         return db
             .one(
-                `INSERT INTO events (eventName, eventDate, eventTime, description, user_id)
-                VALUES ($/eventName/, $/eventDate/, $/eventTime, $/description/, $/user_id/)
+                `INSERT INTO events (event_name, event_date, event_time, description, user_id)
+                VALUES ($/event_name/, $/event_date/, $/event_time/, $/description/, $/user_id/)
                 RETURNING *`, this
             )
             .then((eventI) => {
@@ -42,9 +42,9 @@ class EventItem{
         return db
             .oneOrNone(
                 `UPDATE events SET 
-                eventName = $/eventName/,
-                eventDate = $/eventDate/,
-                eventTime = $/eventTime/,
+                event_name = $/event_name/,
+                event_date = $/event_date/,
+                event_time = $/event_time/,
                 description = $/description/
                 WHERE id = $/id/
                 RETURNING *`, this
