@@ -1,6 +1,14 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
-<div>
-    <h3>User Index View</h3>
+<div class="users-index">
+    <h3>Users Index</h3>
+    <div class="users-index-container">
+        <% for (let user of users) { %>
+            <%= console.log(user) %>
+            <a href="/user/<%= user.id %>"><div class="users-list">
+                <div><h3><%= user.username %></h3></div>
+            </div></a>
+        <% } %>
+    </div>
 </div>
 <%- include('../partials/end') %>

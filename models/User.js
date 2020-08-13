@@ -9,6 +9,12 @@ class User {
         this.name = name;
     }
 
+    static getAll() {
+        return db
+            .manyOrNone(`SELECT * FROM users`)
+            .then((users) => users.map((user) => new this(user)));
+    }
+
     static findByUserName(username) {
         return db
             .oneOrNone(`SELECT * FROM users WHERE username = $1`, username);
@@ -27,6 +33,22 @@ class User {
             RETURNING *`, this
             )
             .then((savedUser) => Object.assign(this, savedUser));
+    }
+
+    update(changes) {
+        Object.assign(this, changes);
+        return db
+            .oneOrNone(
+                `UPDATE users SET
+                username = $/username/,
+                email = $/email/,
+                name = $/name/
+                WHERE id = $/id/
+                RETURNING *`, this
+            )
+            .then((updatedUser) => {
+                Object.assign(this, updatedUser);
+            })
     }
 }
 

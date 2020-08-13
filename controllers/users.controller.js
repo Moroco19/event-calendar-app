@@ -3,7 +3,14 @@ const User = require('../models/User');
 
 const userController = {
     index(req, res, next) {
-        res.redirect('/events')
+        User.getAll()
+            .then((users) => {
+                res.render('users/index', {
+                    userNav: req.user,
+                    users,
+                })
+                .catch((err) => next(err));
+            })
     },
 
     create(req, res, next) {
@@ -34,6 +41,17 @@ const userController = {
             .then((user) => {
                 res.locals.user = user;
                 next();
+            })
+            .catch((err) => next(err));
+    },
+
+    update(req, res, next) {
+        User.findByUserId(req.params.id)
+            .then((user) => {
+                return user.update(req.body);
+            })
+            .then((updatedUser) => {
+                res.redirect(`user/${updatedUser.id}`);
             })
             .catch((err) => next(err));
     },

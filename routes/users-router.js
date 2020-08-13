@@ -15,7 +15,12 @@ userRouter.get('/:id([0-9]+)', authHelper.loginRequired, userController.show, (r
         userView: res.locals.user,
     });
 });
-
+userRouter.get('/:id([0-9]+)/edit', authHelper.loginRequired, userController.show, (req, res) => {
+    res.render('users/edit', {
+        userNav: req.user,
+    });
+});
+userRouter.put('/:id([0-9]+)', authHelper.loginRequired, userController.update);
 module.exports = userRouter;
 
 // userRouter.get('/:id/events', eventsController.getEventsByUser)
