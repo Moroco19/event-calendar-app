@@ -3,10 +3,11 @@
 <div>
     <h3>Single Event View</h3>
     <div class="events-single">
-        <div><h3><%= eventI.event_date %></h3></div>
+        <div><h3><%= moment(eventI.event_date ).format("MM/DD")%></h3></div>
         <div><p><%= eventI.event_name %></p></div>
         <div><p><%= eventI.event_time %></p></div>
         <div><p><%= eventI.event_description %></p></div>
     </div>
+    <a href="/events/attend/<%= eventI.id %>/"><button>Want to Attend?</button></a>
 </div>
 <%- include('../partials/end') %>
