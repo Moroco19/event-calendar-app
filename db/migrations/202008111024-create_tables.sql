@@ -14,4 +14,24 @@ CREATE TABLE IF NOT EXISTS users (
     name VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS eventattendees (
+    id SERIAL PRIMARY KEY,
+    event_id INTEGER,
+    user_id INTEGER,
+    confirmation TEXT NOT NULL,
+    FOREIGN KEY (event_id) REFERENCES events(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS holidayevents (
+    id SERIAL PRIMARY KEY,
+    holiday_name VARCHAR(255),
+    holiday_country VARCHAR(255),
+    is_public_holiday BOOLEAN
+);
+
 ALTER TABLE events ADD COLUMN user_id INTEGER REFERENCES users(id);
+ALTER TABLE holidayevents ADD COLUMN event_id INTEGER REFERENCES events(id);
+
+ALTER TABLE events ADD COLUMN is_holiday;
+ALTER TABLE events ADD COLUMN holiday;

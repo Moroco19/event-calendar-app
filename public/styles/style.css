@@ -1,4 +1,4 @@
-body, .pre-log-container, .pre-log-buttons, nav, .nav-items, .events-index, .event-item {
+body, .pre-log-container, .pre-log-buttons, nav, .nav-items, .sevendaycontainer, .events-index, .event-item {
     display: flex;
 }
 
@@ -17,12 +17,16 @@ body {
     height: 100vh;
 }
 
-.pre-log-buttons, .events-index{
+.pre-log-buttons, .events-index {
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.events-index {
+    margin-top: 32px;
+    position: absolute;
+}
 
 
 nav {
@@ -73,6 +77,11 @@ button, input[type=submit] {
 .login, .register {
     border: rgb(202,212,217) solid 1px;
     padding: 4px 12px;
+}
+
+/* */
+.sevendaycontainer {
+    flex-direction: row;
 }
 
 /* */

@@ -3,8 +3,9 @@ const eventRouter = express.Router();
 
 const eventController = require('../controllers/events-controller');
 const authHelper = require('../services/auth/auth-helper');
+const wpController = require('../controllers/weekpreview-controller');
 
-eventRouter.get('/', authHelper.loginRequired, eventController.index);
+eventRouter.get('/', authHelper.loginRequired, eventController.index, wpController.show);
 eventRouter.get('/add', authHelper.loginRequired, (req, res) => {
     res.render('events/add', {
         userNav: req.user,

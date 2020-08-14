@@ -1,14 +1,24 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
 <div class="events-index">
-    <div>
+    <div class="neweventbutton">
         <a href="/events/add"><button>Create Event</button></a>
     </div>
     <h3>Upcoming Week</h3>
-    <div>7 Day Calendar View</div>
+    <div class="sevendaycontainer">
+        <% for (let i = 0; i < 7; i++) { %>
+            <div class="daycard" id="<%= (moment().add(i, 'days').format("YYYY/MM/DD")) %>">
+                <div class="daycarddate">
+                    <h3><%= (moment().add(i, 'days').format("MM/DD")) %></h3>
+                </div>
+                <div class="daycardevents">
+                    <h3>Events</h3>
+                </div>
+            </div>
+        <% } %>
+    </div>
     <div class="events-container">
         <% for (let eventI of eventItems) { %>
-            <%= console.log(eventI) %>
             <a href="/events/<%= eventI.id %>"><div class="events-list">
                 <div><h3><%= moment(eventI.event_date).calendar() %></h3></div>
                 <div><p><%= eventI.event_name %></p></div>

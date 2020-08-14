@@ -1,4 +1,5 @@
 const db = require('../db/config');
+const holidayController = require('../controllers/holidays-controller');
 
 class EventItem{
     constructor({ id, event_name, event_date, event_time, description, user_id }) {
@@ -25,6 +26,14 @@ class EventItem{
             });
     }
 
+    static getByDate(date) {
+        return db
+            .oneOrNone('SELECT * FROM events WHERE event_date = $1', date)
+            .then((eventICards) => {
+                eventICards.map((eventICard) => new this(eventICard));
+            });
+    }
+
     save() {
         return db
             .one(
@@ -33,6 +42,7 @@ class EventItem{
                 RETURNING *`, this
             )
             .then((eventI) => {
+                // holidayController.create(eventI);
                 return Object.assign(this, eventI);
             });
     }
