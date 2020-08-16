@@ -20,7 +20,7 @@
     <div class="events-container">
         <% for (let eventI of eventItems) { %>
             <a href="/events/<%= eventI.id %>"><div class="events-list">
-                <div><h3><%= moment(eventI.event_date).calendar() %></h3></div>
+                <div><h3><%= moment(eventI.event_date).format("YYYY/MM/DD") %></h3></div>
                 <div><p><%= eventI.event_name %></p></div>
             </div></a>
         <% } %>

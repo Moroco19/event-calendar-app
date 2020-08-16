@@ -9,5 +9,11 @@
         <div><p><%= eventI.event_description %></p></div>
     </div>
     <a href="/events/attend/<%= eventI.id %>/"><button>Want to Attend?</button></a>
+    <div class="edit-delete">   
+        <a href="/events/<%= eventI.id %>/edit"><button class="edit-button">Edit Event</button></a>
+        <form class="delete-button" method="POST" action="/events/<%= eventI.id %>?_method=DELETE">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
 </div>
 <%- include('../partials/end') %>

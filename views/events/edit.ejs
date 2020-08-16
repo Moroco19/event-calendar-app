@@ -1,6 +1,14 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
 <div>
-    <h3>Edit Event View</h3>
+    <h3>Edit This Event</h3>
+    <form method="POST" action="/events">
+        <input name="event_name" type="text" value="<%= eventI.event_name %>" placeholder="Event Name" />
+        <input name="event_date" type="date" value="<%= eventI.event_date %>" placeholder="Event Date" />
+        <input name="event_time" type="time" value="<%= eventI.event_time %>" placeholder="Event Time" />
+        <input name="description" type="text" value="<%= eventI.description %>" placeholder="Description" />
+        <input type="submit" value="Submit" />
+    </form>
+    <a href="/events/">Back</a>
 </div>
 <%- include('../partials/end') %>
