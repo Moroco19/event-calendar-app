@@ -7,14 +7,17 @@
     <h3>Upcoming Week</h3>
     <div class="sevendaycontainer">
         <% for (let i = 0; i < 7; i++) { %>
+            <a href="/events/date/<%= (moment().add(i, 'days').format("YYYY")) %>-<%= (moment().add(i, 'days').format("MM")) %>-<%= (moment().add(i, 'days').format("DD")) %>">
             <div class="daycard" id="<%= (moment().add(i, 'days').format("YYYY/MM/DD")) %>">
                 <div class="daycarddate">
-                    <h3><%= (moment().add(i, 'days').format("MM/DD")) %></h3>
+                    <h3><%= (moment().add(i, 'days').format("MM")) %></h3>
+                    <h3><%= (moment().add(i, 'days').format("DD")) %></h3>
                 </div>
                 <div class="daycardevents">
                     <h3>Events</h3>
                 </div>
             </div>
+            </a>
         <% } %>
     </div>
     <div class="events-container">

@@ -11,6 +11,17 @@ const eventController = {
             })
             .catch((err) => next(err));
     },
+    
+    dated(req, res, next) {
+        EventItem.getByDate(req.params.date)
+            .then((eventItems) => {
+                res.render('events/datedshow', { 
+                    eventItems,
+                    userNav: req.user, 
+                });
+            })
+            .catch((err) => next(err));
+    },
 
     show(req, res, next) {
         EventItem.getById(req.params.id)

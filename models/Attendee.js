@@ -9,6 +9,21 @@ class Attendee{
         this.confirmation = confirmation;
     };
 
+    // static getEventAttendeeCount(id) {
+    //     return db
+    //     .oneOrNone('SELECT COUNT(eventattendees.user_id) FROM events JOIN eventattendees ON events.id = eventattendees.event_id WHERE events.id = $1', id)
+    //     .then((attendees) => {
+    //         if (attendees) return new this(attendees);
+    //         throw new Error(`Event not found`);
+    //     });
+    // }
+
+    static getEventAttendeeList(id) {
+        return db
+        .manyOrNone('SELECT eventattendees.id, eventattendees.event_id, eventattendees.user_id, eventattendees.confirmation FROM events JOIN eventattendees ON events.id = eventattendees.event_id WHERE events.id = $1', id)
+        .then((attendeeList) => attendeeList.map((attendees) => new this(attendees)));
+    }
+
     save() {
         return db
             .one(

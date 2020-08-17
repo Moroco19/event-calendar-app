@@ -33,7 +33,7 @@ eventRouter.get('/attend/:id([0-9]+)', authHelper.loginRequired, eventController
     });
 });
 eventRouter.post('/attend/', attendeeController.create);
-
+eventRouter.get('/date/:date', authHelper.loginRequired, eventController.dated);
 
 eventRouter.delete('/:id([0-9]+)', authHelper.loginRequired, eventController.delete);
 

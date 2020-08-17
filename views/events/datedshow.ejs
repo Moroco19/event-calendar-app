@@ -1,0 +1,17 @@
+<%- include('../partials/boilerplate') %>
+<%- include('../partials/nav') %>
+
+<div class="events-index">
+    <div class="events-container">
+        <% for (let eventI of eventItems) { %>
+            <a href="/events/<%= eventI.id %>"><div class="events-list">
+                <div class="date-split">
+                    <div><h3><%= moment(eventI.event_date).format("YYYY") %></h3></div>
+                    <div><h3><%= moment(eventI.event_date).format("MM/DD") %></h3></div>
+                </div>
+                <div><p><%= eventI.event_name %></p></div>
+            </div></a>
+        <% } %> 
+    </div>
+</div>
+<%- include('../partials/end') %>

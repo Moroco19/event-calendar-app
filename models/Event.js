@@ -28,10 +28,8 @@ class EventItem{
 
     static getByDate(date) {
         return db
-            .oneOrNone('SELECT * FROM events WHERE event_date = $1', date)
-            .then((eventICards) => {
-                eventICards.map((eventICard) => new this(eventICard));
-            });
+            .manyOrNone('SELECT * FROM events WHERE event_date = $1', date)
+            .then((eventICards) => eventICards.map((eventICard) => new this(eventICard)));
     }
 
     save() {
