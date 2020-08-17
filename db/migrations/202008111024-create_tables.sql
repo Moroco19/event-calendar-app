@@ -32,6 +32,3 @@ CREATE TABLE IF NOT EXISTS holidayevents (
 
 ALTER TABLE events ADD COLUMN user_id INTEGER REFERENCES users(id);
 ALTER TABLE holidayevents ADD COLUMN event_id INTEGER REFERENCES events(id);
-
-ALTER TABLE events ADD COLUMN is_holiday;
-ALTER TABLE events ADD COLUMN holiday;
