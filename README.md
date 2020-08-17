@@ -2,7 +2,11 @@
 
 The goal of this app was to create a place for users to create and store events that start on a given date and time, and allow other uses to indicate if they wish to attend.
 
-## To Get Started
+## My Deployment
+
+To see an example of this app in action, you can view my deployment at: https://blooming-island-46925.herokuapp.com/
+
+## To Get Started On Your Own
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
