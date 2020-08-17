@@ -1,9 +1,9 @@
 <nav>
 
-        <div class="username"><a href="/user/<%= userNav.id %>"><%= userNav.username %></a></div>
+        <div class="username"><a id="profilenav" href="/user/<%= userNav.id %>"><%= userNav.username %></a></div>
         <div class="nav-items">
-            <a href="/events"><div>Events</div></a>
-            <a href="/user"><div>Users</div></a>
+            <div><a id="eventsnav" href="/events">Events</a></div>
+            <div><a id="usersnav" href="/user">Users</a></div>
         </div>
 
 </nav>
