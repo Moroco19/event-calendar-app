@@ -26,15 +26,6 @@ class EventItem{
             });
     }
 
-    // static getByIdWithAttendees(id) {
-    //     return db
-    //     .oneOrNone('SELECT * FROM events JOIN eventattendees ON events.id = eventattendees.event_id WHERE events.id = $1', id)
-    //     .then((eventI) => {
-    //         if (eventI) return new this(eventI);
-    //         throw new Error(`Event not found`);
-    //     });
-    // }
-
     static getByDate(date) {
         return db
             .oneOrNone('SELECT * FROM events WHERE event_date = $1', date)
@@ -51,7 +42,6 @@ class EventItem{
                 RETURNING *`, this
             )
             .then((eventI) => {
-                // holidayController.create(eventI);
                 return Object.assign(this, eventI);
             });
     }

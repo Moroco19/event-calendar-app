@@ -1,13 +1,12 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
 <div class="user-profile">
-    <h3>User Single View</h3>
-    <p><%= user.username %></p>
-    <p><%= user.email %></p>
-    <p><%= user.name %></p>
-    <p>Country List</p>
-    <% if (userNav === user) { %>
-        <a href="/user/<%= userNav.id %>"><button>Edit</button></a>
+    <h3>User Profile</h3>
+    <div class="profile-rows"><p>Username:</p><p><%= user.username %></p></div>
+    <div class="profile-rows"><p>Email:</p><p><%= user.email %></p></div>
+    <div class="profile-rows"><p>Name:</p><p><%= user.name %></p></div>
+    <% if (userNav.id === user.id) { %>
+        <a href="/user/<%= userNav.id %>/edit"><button>Edit</button></a>
     <% } %>
 </div>
 <%- include('../partials/end') %>

@@ -1,4 +1,4 @@
-body, .pre-log-container, .pre-log-buttons, nav, .nav-items, .sevendaycontainer, .events-index, .event-item, .edit-delete {
+body, .pre-log-container, .pre-log-buttons, nav, .nav-items, .sevendaycontainer, .events-index, .event-item, .edit-delete, .events-list, .date-split, .users-index, .users-list, .user-profile, .profile-rows {
     display: flex;
 }
 
@@ -8,6 +8,8 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0 20%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
 }
 
 .pre-log-container {
@@ -63,7 +65,6 @@ a {
 
 button, input[type=submit] {
     border: none;
-    font-size: 14px;
     color: white;
     text-align: center;
     background-color: rgb(2,106,221);
@@ -83,7 +84,27 @@ button, input[type=submit] {
     flex-direction: row;
 }
 
-/* */
+/* Events Index Page */
+.events-list {
+    flex-direction: column;
+    align-items: center;
+    min-width: 20vw;
+    padding: 5px 0;
+    color: white;
+    background-color: rgb(2,106,221);
+    border-radius: 5px;
+    line-height: 1;
+    padding: 11px 32px;
+    margin: 5px 0;
+}
+
+.date-split {
+    justify-content: space-between;
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+/* Single Event View */
 .event-item {
     flex-direction: column;
     justify-content: space-evenly;
@@ -93,4 +114,49 @@ button, input[type=submit] {
 .edit-delete {
     flex-direction: row;
     justify-content: space-between;
+}
+
+/* Users List View */
+
+.users-index {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.users-list {
+    flex-direction: column;
+    align-items: center;
+    min-width: 20vw;
+    padding: 5px 0;
+    color: white;
+    background-color: rgb(2,106,221);
+    border-radius: 5px;
+    line-height: 1;
+    padding: 11px 32px;
+    margin: 5px 0;
+}
+
+/* User Profile View */
+.user-profile {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 1;
+    padding: 11px 32px;
+    margin: 5px 0;
+}
+
+.profile-rows {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-profile p {
+    border-radius: 30px;
+    margin: 5px 0;
+    padding: 5px 5px;
+    color: white;
+    background-color: rgb(2,106,221);
+    flex-grow: 1;
 }

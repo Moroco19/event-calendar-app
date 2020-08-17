@@ -47,8 +47,7 @@ const userController = {
     update(req, res, next) {
         User.findByUserId(req.params.id)
             .then((user) => {
-                console.log(user);
-                return user.updates(req.body);
+                return user.update(req.body);
             })
             .then((updatedUser) => {
                 res.redirect(`user/${updatedUser.id}`);

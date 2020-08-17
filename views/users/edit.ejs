@@ -1,14 +1,13 @@
 <%- include('../partials/boilerplate') %>
 <%- include('../partials/nav') %>
 <div class="user-profile">
-    <h3>User Edit View</h3>
-    <form method="POST" action="/user/<%= userNav.id %>?_method=PUT">
+    <h3>Edit Profile</h3>
+    <form method="POST" action="/user">
         <input name="username" type="text" value="<%= user.username %>" placeholder="<%= user.username %>" />
         <input name="email" type="text" value="<%= user.email %>" placeholder="<%= user.email %>" />
         <input name="name" type="text" value="<%= user.name %>" placeholder="<%= user.name %>" />
         <input type="submit" value="Save" />
     </form>
-    <p>Country List</p>
     <a href="/user/<%= userNav.id %>"><button>Cancel</button></a>
 </div>
 <%- include('../partials/end') %>
