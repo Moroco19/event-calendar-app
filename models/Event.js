@@ -1,5 +1,5 @@
 const db = require('../db/config');
-const holidayController = require('../controllers/holidays-controller');
+//const holidayController = require('../controllers/holidays-controller');
 
 class EventItem{
     constructor({ id, event_name, event_date, event_time, description, user_id }) {
