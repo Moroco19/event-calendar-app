@@ -41,3 +41,11 @@ CREATE DATABASE event_calendar_dev
 ```
 npm run dev
 ```
+
+## Tech Used
+
+- Express
+- PostgresSQL
+- HTML
+- CSS
+- Javascript
