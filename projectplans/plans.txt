@@ -1,0 +1,9 @@
+Initial planned features:
+-Creating events
+-Editing events
+-Deleting events
+-Adding user auth to login
+-Upcoming week preview of events (events by date)
+-Marking to attend events (partially implemented)
+-Adding another user as a friend (planned not implemented)
+-Seeing if an event was on a holiday via api (planned not implemented)
